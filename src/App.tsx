@@ -1,30 +1,19 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-
 type Players = "O" | "X";
-
 function App() {
-
   const [turn, setTurn] = useState<Players>("O");
   const [winner, setWinner] = useState<Players | null>(null);
   const [draw, setDraw] = useState<boolean | null>(null);
   const [marks, setMarks] = useState<{ [key: string]: Players }>({});
   const gameOver = !!winner || !! draw;
-
-
-
-
-
   const getSquares = () => {
     return new Array(9).fill(true)
   };
-
   const play = (index: number) => {
-
     if(marks[index] || gameOver) {
       return;
     }
-
     setMarks(prev => ({ ...prev, [index]: turn }))
     setTurn(prev => prev === 'O' ? "X" : "O")
   };
@@ -59,7 +48,6 @@ function App() {
       return marks[a];
     }
   }
-
   useEffect(() => {
       const winner = getWinner()
 
@@ -72,7 +60,6 @@ function App() {
       }
   }, [marks]);
 
-
   const reset = () => {
     setTurn(marks[0] === "O" ? "X" : "O");
     setMarks({});
@@ -82,13 +69,9 @@ function App() {
 
   return (
     <div className="container">
-
-
       {winner && <h1>{winner} Ganhou</h1>}
       {draw && <h1>Empate</h1>}
       {gameOver && <button onClick={reset}>Jogar Novamente</button>}
-
-      
       {!gameOver && <p>É a vez de {turn}</p>}
       <div className={`board ${gameOver ? "gameOver" : null}`}>
         {getSquares().map((_, i) => (
@@ -102,5 +85,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
