@@ -1,6 +1,6 @@
 <html>
 
-<img src="./icons.png" width="100" alt="Icone"/>
+<img src="./Readme/icons.png" width="100" alt="Icone"/>
 
 # Projeto Jogo da velha
 
@@ -17,7 +17,7 @@
 
 <div>
 <a href="https://jogo-da-velha-react-sigma.vercel.app/" target="_blank">
-<img src="./Projeto-Jogo_da_velha.gif" alt="GIF"/>
+<img src="./Readme/Projeto-Jogo_da_velha.gif" alt="GIF"/>
 </a>
 </div>
 
