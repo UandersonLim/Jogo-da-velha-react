@@ -6,12 +6,12 @@ function App() {
   const [winner, setWinner] = useState<Players | null>(null);
   const [draw, setDraw] = useState<boolean | null>(null);
   const [marks, setMarks] = useState<{ [key: string]: Players }>({});
-  const gameOver = !!winner || !! draw;
+  const gameOver = !!winner || !!draw;
   const getSquares = () => {
     return new Array(9).fill(true)
   };
   const play = (index: number) => {
-    if(marks[index] || gameOver) {
+    if (marks[index] || gameOver) {
       return;
     }
     setMarks(prev => ({ ...prev, [index]: turn }))
@@ -45,19 +45,19 @@ function App() {
       const [a, b, c] = line;
 
       if (marks[a] && marks[a] === marks[b] && marks[a] === marks[c])
-      return marks[a];
+        return marks[a];
     }
   }
   useEffect(() => {
-      const winner = getWinner()
+    const winner = getWinner()
 
-      if (winner) {
-        setWinner(winner)
-      }else{
-        if(Object.keys(marks).length === 9){
-          setDraw(true)
-        }
+    if (winner) {
+      setWinner(winner)
+    } else {
+      if (Object.keys(marks).length === 9) {
+        setDraw(true)
       }
+    }
   }, [marks]);
 
   const reset = () => {
